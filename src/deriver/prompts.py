@@ -62,6 +62,11 @@ Analyze messages from {peer_id} to extract **explicit atomic facts** about them.
    - Use absolute dates/times when possible (e.g. "June 26, 2025" not "yesterday")
 
 RULES:
+- Output language: default to English. If {peer_id}'s messages in this batch are
+  predominantly in another natural language, write extracted conclusions in that
+  same language instead. Do not let incidental quoted/source text or retrieved
+  context change the output language. Preserve exact user-provided names, code
+  tokens, commands, paths, URLs, and quoted strings that must remain literal.
 - Properly attribute observations to the correct subject: if it is about {peer_id}, say so. If {peer_id} is referencing someone or something else, make that clear.
 - Observations should make sense on their own. Each observation will be used in the future to better understand {peer_id}.
 - Extract ALL observations from {peer_id} messages, using others as context.
